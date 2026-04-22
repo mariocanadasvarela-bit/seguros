@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Cañadas Varela | Productor Asesor de Seguros</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Mario Cañadas Varela | PAS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,380 +12,248 @@
             --secondary: #00a8e8; 
             --accent-red: #c62828;
             --light: #f4f7f6;
-            --dark: #333333;
+            --dark: #1a1a1a;
             --wapp-green: #25D366;
+            --glass: rgba(255, 255, 255, 0.95);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { background-color: #ffffff; color: var(--dark); overflow-x: hidden; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #ffffff; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
 
+        /* HEADER - MENÚ FIJO CON TAMAÑO OPTIMIZADO */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 5%;
+            padding: 15px 5%; 
             background: #fff;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
+        .nav-logo-container img { 
+            height: 80px; 
+            width: auto; 
+            border-radius: 8px; 
+            transition: 0.3s;
+        }
+        .nav-actions { display: flex; gap: 15px; align-items: center; }
+        .nav-btn { text-decoration: none; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .nav-btn-quote { background: var(--accent-red); color: #fff; }
+        .nav-btn-wapp { background: var(--wapp-green); color: #fff; }
+        .nav-btn:hover { transform: translateY(-2px); opacity: 0.9; }
 
-        .nav-logo-container { display: flex; align-items: center; gap: 15px; }
-        .nav-logo { height: 50px; width: auto; border-radius: 5px; }
-        .nav-text { line-height: 1.2; font-weight: 800; color: var(--primary); font-size: 1rem; }
-        .nav-text span { display: block; font-weight: 400; color: var(--secondary); font-size: 0.75rem; }
-        
-        .nav-links { display: flex; list-style: none; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--secondary); }
+        /* BOTÓN FLOTANTE WHATSAPP */
+        .floating-wapp {
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 30px; 
+            z-index: 2000; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+            text-decoration: none; 
+            color: #fff;
+            background-color: var(--wapp-green);
+            transition: transform 0.3s ease;
+        }
+        .floating-wapp:hover { transform: scale(1.1); }
 
+        /* HERO - MI TAREA */
         .hero {
             position: relative;
-            background-image: linear-gradient(rgba(0, 59, 92, 0.75), rgba(0, 59, 92, 0.75)), url('perfil.jpg');
+            background-image: linear-gradient(rgba(0, 59, 92, 0.85), rgba(0, 59, 92, 0.85)), url('logo 2.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: #fff;
-            padding: 100px 5%;
+            padding: 120px 5%;
             text-align: center;
-            min-height: 550px;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
-        .hero h2 { font-size: 1.25rem; font-weight: 400; margin-bottom: 35px; color: #fff; max-width: 900px; line-height: 1.6; }
-        
-        .hero-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;}
-        .help-text { font-size: 0.85rem; color: #e0e0e0; font-style: italic; opacity: 0.9; }
-        
-        .btn {
-            display: inline-block;
-            padding: 16px 35px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-        .btn-quote { background: var(--accent-red); color: #fff; }
-        .btn-wapp { background: var(--wapp-green); color: #fff; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
+        .hero p { font-size: 1.35rem; font-weight: 400; margin-bottom: 40px; max-width: 850px; line-height: 1.6; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
-        .wapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--wapp-green);
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .process-section { 
-            padding: 100px 5%; 
-            background-image: linear-gradient(rgba(244, 247, 246, 0.85), rgba(244, 247, 246, 0.85)), url('logo 2.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 50px; }
-        
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .process-item { 
-            padding: 40px 30px; 
-            background: rgba(255, 255, 255, 0.9); 
+        /* BOTONES DE SALTO */
+        .jump-btns { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn-jump {
+            background: var(--glass);
+            color: var(--primary);
+            padding: 25px 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-top: 5px solid var(--secondary);
-            transition: 0.3s;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: 0.4s;
+            min-width: 280px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        .process-item h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; }
-        .process-item p { font-size: 1rem; line-height: 1.6; color: #444; }
+        .btn-jump i { font-size: 2.5rem; color: var(--secondary); }
+        .btn-jump:hover { transform: translateY(-10px); background: #fff; }
+        .btn-jump.alt { background: var(--primary); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
 
-        .services-section { padding: 80px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        /* SECCIONES GENERALES */
+        .services-section { padding: 100px 5%; }
+        .bg-light { background-color: var(--light); }
+        .section-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 800; margin-bottom: 60px; position: relative; color: var(--primary); }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--secondary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
 
-        .card {
-            background: #fff;
-            padding: 35px 25px;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border-bottom: 4px solid transparent;
-            cursor: pointer; 
-            overflow: hidden;
-        }
-        .card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--secondary); }
-        .card i.main-icon { font-size: 3rem; color: var(--secondary); margin-bottom: 20px; }
-        .card h3 { color: var(--primary); font-size: 1.15rem; font-weight: 700; margin-bottom: 12px;}
-        
-        .card .info {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.6;
-            text-align: left;
-        }
-        .card.active .info { max-height: 600px; opacity: 1; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1250px; margin: 0 auto; }
 
-        .partners { padding: 80px 5%; text-align: center; background: #fff; }
+        /* SECCIÓN ASESORAMIENTO */
+        .process-section { padding: 100px 5%; background: var(--light); text-align: center; }
+        .card-process { background: #fff; padding: 40px 30px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card-process h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 15px; color: var(--primary); }
+
+        /* TARJETAS DE SERVICIOS */
+        .card { background: #fff; padding: 35px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; cursor: pointer; border: 1px solid #eee; text-align: center; }
+        .card:hover { border-color: var(--secondary); transform: translateY(-5px); }
+        .card i.main-icon { font-size: 3rem; color: var(--secondary); margin-bottom: 20px; display: block; }
+        .card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+        .card .info { max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s; font-size: 0.95rem; color: #555; text-align: left; }
+        .card.active .info { max-height: 500px; opacity: 1; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+
+        /* ASEGURADORAS */
+        .partners { padding: 80px 5%; background: #fff; text-align: center; }
+        .partners h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 40px; }
         .partner-logos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; }
-        .partner-logos img { height: 45px; transition: 0.3s; filter: grayscale(100%); opacity: 0.7; }
-        .partner-logos img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+        .partner-logos img { height: 60px; filter: grayscale(100%); opacity: 0.7; transition: 0.3s; }
+        .partner-logos img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 
-        footer { background: #1a1a1a; color: #ccc; padding: 80px 5% 40px 5%; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; max-width: 1200px; margin: 0 auto; }
-        .footer-col h3 { color: #fff; margin-bottom: 25px; font-size: 1.4rem; }
-        .footer-col p, .footer-col a { color: #aaa; text-decoration: none; margin-bottom: 15px; display: block; font-size: 1rem; }
-        .footer-bottom { text-align: center; border-top: 1px solid #333; padding-top: 30px; margin-top: 50px; }
-        .ssn-logo { height: 45px; margin-top: 20px; }
+        /* FOOTER */
+        footer { background: var(--dark); color: #fff; padding: 80px 5% 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-right { text-align: right; }
+        .ssn-logo { height: 45px; filter: brightness(0) invert(1); margin-top: 20px; }
+        .footer-copy { text-align: center; margin-top: 40px; font-size: 0.8rem; opacity: 0.5; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero { min-height: 450px; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero h2 { font-size: 1.1rem; }
-            .hero-btns { flex-direction: column; width: 100%; max-width: 300px; }
-            .btn { width: 100%; text-align: center; }
-            .section-title { font-size: 1.8rem; }
-            .grid { grid-template-columns: 1fr; }
-            .process-section { background-attachment: scroll; }
+            nav { padding: 12px 5%; }
+            .nav-actions span { display: none; } 
+            .nav-btn { padding: 12px; border-radius: 50%; }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-logo-container img { height: 55px; } 
+            .partner-logos img { height: 45px; gap: 20px; }
+            .footer-right { text-align: left; } /* Ajuste para que en celu se lea bien */
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/5492644153750" class="wapp-float" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=5492644153750" class="floating-wapp" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <nav>
-        <div class="nav-logo-container">
-            <img src="perfil.jpg" alt="Logo Mario Cañadas Varela" class="nav-logo">
-            <div class="nav-text">Mario Cañadas Varela <span>Productor Asesor de Seguros</span></div>
+        <div class="nav-logo-container"><img src="perfil.jpg" alt="Mario Cañadas Varela"></div>
+        <div class="nav-actions">
+            <a href="https://www.lasegundaonline.com.ar/cotizacion-online/agencia/5875" class="nav-btn nav-btn-quote" target="_blank"><i class="fa-solid fa-calculator"></i> <span>Cotizador Online</span></a>
+            <a href="https://api.whatsapp.com/send?phone=5492644153750" class="nav-btn nav-btn-wapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></a>
         </div>
-        <ul class="nav-links">
-            <li><a href="#proceso">Mi Tarea</a></li>
-            <li><a href="#personas">Personas</a></li>
-            <li><a href="#negocios">Empresas</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
     </nav>
 
     <header class="hero">
         <h1>Mi Tarea</h1>
-        <h2>Como Productor Asesor de Seguros, trabajo en la identificación de la exposición al riesgo de mis clientes, evalúo el posible impacto económico en su negocio o vida personal y aporto mi experiencia para sugerir propuestas que permitan prevenir, atenuar o transferir el riesgo al que se está expuesto.</h2>
-        <div class="hero-btns">
-            <a href="https://www.lasegundaonline.com.ar/cotizacion-online/agencia/5875" class="btn btn-quote" target="_blank" rel="noopener noreferrer nofollow">Cotizador Online</a>
-            <a href="https://wa.me/5492644153750" class="btn btn-wapp" target="_blank">Consultar por WhatsApp</a>
+        <p>Protejo lo que más valorás. Analizo tus riesgos y diseño la estrategia de cobertura ideal para tu patrimonio o tu negocio.</p>
+        <div class="jump-btns">
+            <a href="#personas" class="btn-jump"><i class="fa-solid fa-house-user"></i>Personas y Familias</a>
+            <a href="#negocios" class="btn-jump alt"><i class="fa-solid fa-briefcase"></i>Empresas y Negocios</a>
         </div>
-        <p class="help-text">Si tenés problemas para cargar el cotizador, contactanos por WhatsApp.</p>
     </header>
 
-    <section id="proceso" class="process-section">
-        <h2 class="section-title">Como lo hacemos</h2>
-        <div class="process-grid">
-            <div class="process-item">
-                <h3>Diagnóstico y análisis</h3>
-                <p>Se trabaja en la estructura y procesos del cliente. Se identifican, analizan y evalúan los riesgos, pudiendo determinar así, las coberturas adecuadas para proteger cada aspecto del patrimonio.</p>
-            </div>
-            <div class="process-item">
-                <h3>Auditoria de coberturas vigentes</h3>
-                <p>Analizar el programa de seguros vigente y evaluar la correcta adecuación de las coberturas al riesgo existente.</p>
-            </div>
-            <div class="process-item">
-                <h3>Programa de seguros</h3>
-                <p>Establecer la estrategia de transferencia de riesgo. Negociar con las aseguradoras las condiciones de cobertura y los precios de póliza de todos los ramos.</p>
-            </div>
+    <section class="process-section">
+        <h2 class="section-title">Asesoramiento Integral</h2>
+        <div class="grid">
+            <div class="card-process"><h3>Diagnóstico y análisis</h3><p>Identificamos, analizamos y evaluamos los riesgos para determinar las coberturas que protegen cada aspecto de tu patrimonio.</p></div>
+            <div class="card-process"><h3>Auditoria de coberturas</h3><p>Analizamos tu programa actual y evaluamos la adecuación de las coberturas al riesgo real existente.</p></div>
+            <div class="card-process"><h3>Estrategia de Riesgo</h3><p>Negociamos con las aseguradoras líderes las mejores condiciones de precio y cobertura para vos.</p></div>
         </div>
     </section>
 
     <section id="personas" class="services-section">
         <h2 class="section-title">Seguros de Personas y Familias</h2>
         <div class="grid">
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-person-falling main-icon"></i>
-                <h3>Accidentes Personales</h3>
-                <div class="info">Seguridad y respaldo económico inmediato ante imprevistos, accidentes o invalidez ocurridos durante tu jornada laboral o tu vida diaria.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-golf-ball-tee main-icon"></i>
-                <h3>Artículos Deportivos</h3>
-                <div class="info">Protegé tu equipamiento deportivo de alto valor (golf, esquí, kitesurf, etc.) contra robo, pérdida o daños durante tus prácticas o viajes.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-car main-icon"></i>
-                <h3>Autos</h3>
-                <div class="info">Conocemos la comodidad e independencia que generan los vehículos. Te garantizamos confianza y tranquilidad total en cada viaje que emprendas.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-bicycle main-icon"></i>
-                <h3>Bicicletas y Eco Movilidad</h3>
-                <div class="info">La movilidad sustentable (monopatín, moto eléctrica) implica riesgos: accidentes, daños a terceros y robos. Disfrutá la ecomovilidad con la tranquilidad de estar protegido.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-ship main-icon"></i>
-                <h3>Embarcaciones</h3>
-                <div class="info">Navegá sin preocupaciones. Amplia cobertura para lanchas, yates y motos de agua ante daños propios, robo, incendio y responsabilidad civil hacia terceros.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-house-chimney main-icon"></i>
-                <h3>Hogar</h3>
-                <div class="info">Cada hogar merece un seguro a medida. Protegé tu casa contra robos, incendios, daños por agua y reclamos de terceros.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-motorcycle main-icon"></i>
-                <h3>Motos</h3>
-                <div class="info">Disfrutá la libertad de moverte en dos ruedas con el respaldo total de la compañía ante robos, daños por accidentes y reclamos de terceros.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-briefcase main-icon"></i>
-                <h3>RC Mala Praxis (Profesionales)</h3>
-                <div class="info">Desarrollate con el respaldo de LA SEGUNDA ante reclamos por error u omisión. Incluye: Abogados, Ingenieros, Contadores, Arquitectos, Escribanos y Maestros Mayor de Obra.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-user-doctor main-icon"></i>
-                <h3>RC Mala Praxis (Salud)</h3>
-                <div class="info">Respaldo ante indemnizaciones por actos médicos derivados de tus servicios. Cubre: Médicos, Odontólogos, Psicólogos, Enfermeros, Nutricionistas, Kinesiólogos y más.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-piggy-bank main-icon"></i>
-                <h3>Retiro</h3>
-                <div class="info">Planificá tu futuro hoy. Una herramienta de ahorro e inversión pensada para mantener tu calidad de vida y tranquilidad el día de mañana.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-plane-departure main-icon"></i>
-                <h3>Seguro de Viaje</h3>
-                <div class="info">Asistencia médica integral, pérdida de equipaje, cancelación y repatriación para que viajes tranquilo a cualquier parte del mundo.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-laptop main-icon"></i>
-                <h3>Tecnología Portátil</h3>
-                <div class="info">Asegurá tus dispositivos electrónicos (notebooks, tablets, cámaras) ante robo o daños accidentales, tanto dentro de tu casa como en la vía pública.</div>
-            </div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-user-shield main-icon"></i><h3>Accidentes Personales</h3><div class="info">Seguridad y respaldo económico inmediato ante imprevistos, accidentes o invalidez ocurridos durante tu jornada laboral o tu vida diaria.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-golf-ball-tee main-icon"></i><h3>Artículos Deportivos</h3><div class="info">Protegé tu equipamiento deportivo de alto valor (golf, esquí, kitesurf, etc.) contra robo, pérdida o daños durante tus prácticas o viajes.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-car main-icon"></i><h3>Autos</h3><div class="info">Conocemos la comodidad e independencia que generan los vehículos. Te garantizamos confianza y tranquilidad total en cada viaje que emprendas.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-bicycle main-icon"></i><h3>Bicicletas y Eco Movilidad</h3><div class="info">La movilidad sustentable (monopatín, moto eléctrica) implica riesgos: accidentes, daños a terceros y robos. Disfrutá la ecomovilidad con la tranquilidad de estar protegido.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-ship main-icon"></i><h3>Embarcaciones</h3><div class="info">Navegá sin preocupaciones. Amplia cobertura para lanchas, yates y motos de agua ante daños propios, robo, incendio y responsabilidad civil hacia terceros.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-house-chimney main-icon"></i><h3>Hogar</h3><div class="info">Cada hogar merece un seguro a medida. Protegé tu casa contra robos, incendios, daños por agua y reclamos de terceros.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-motorcycle main-icon"></i><h3>Motos</h3><div class="info">Disfrutá la libertad de moverte en dos ruedas con el respaldo total de la compañía ante robos, daños por accidentes y reclamos de terceros.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-scale-balanced main-icon"></i><h3>RC Mala Praxis (Profesionales)</h3><div class="info">Desarrollate con el respaldo de las mejores aseguradoras ante reclamos por error u omisión. Incluye: Abogados, Ingenieros, Contadores, Arquitectos, Escribanos y Maestros Mayor de Obra.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-stethoscope main-icon"></i><h3>RC Mala Praxis (Salud)</h3><div class="info">Respaldo ante indemnizaciones por actos médicos derivados de tus servicios. Cubre: Médicos, Odontólogos, Psicólogos, Enfermeros, Nutricionistas, Kinesiólogos y más.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-piggy-bank main-icon"></i><h3>Retiro</h3><div class="info">Planificá tu futuro hoy. Una herramienta de ahorro e inversión pensada para mantener tu calidad de vida y tranquilidad el día de mañana.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-plane-departure main-icon"></i><h3>Seguro de Viaje</h3><div class="info">Asistencia médica integral, pérdida de equipaje y respaldo ante cualquier imprevisto en tus viajes por el mundo.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-laptop-code main-icon"></i><h3>Tecnología Portátil</h3><div class="info">Asegurá tus dispositivos electrónicos ante robo o daños accidentales en cualquier lugar.</div></div>
         </div>
     </section>
 
-    <section id="negocios" class="services-section grey-bg">
+    <section id="negocios" class="services-section bg-light">
         <h2 class="section-title">Seguros de Negocios y Empresas</h2>
         <div class="grid">
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-plane-up main-icon"></i>
-                <h3>Aeronavegación</h3>
-                <div class="info">Coberturas específicas para la actividad aeronáutica comercial y privada. Casco, RC pasajeros y daños a terceros en superficie.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-hard-hat main-icon"></i>
-                <h3>ART</h3>
-                <div class="info">Cobertura obligatoria para proteger a tus empleados ante accidentes de trabajo o enfermedades profesionales, garantizando atención médica.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-file-signature main-icon"></i>
-                <h3>Cauciones</h3>
-                <div class="info">Garantías para licitaciones públicas/privadas, ejecución de obras, anticipos financieros, aduana y alquileres comerciales.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-truck-moving main-icon"></i>
-                <h3>Flota de Vehículos</h3>
-                <div class="info">Asegurá todos los vehículos utilitarios, camiones o autos de tu empresa, optimizando costos y simplificando la gestión de la póliza.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-store main-icon"></i>
-                <h3>Integral de Comercio</h3>
-                <div class="info">Protegé tu local, mercadería y herramientas contra incendio, robo, daños por agua y rotura de cristales en una sola póliza.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-scale-balanced main-icon"></i>
-                <h3>Responsabilidad Civil</h3>
-                <div class="info">Mantené a salvo el patrimonio de tu empresa frente a reclamos de terceros por daños ocurridos en el desarrollo de tu actividad.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-tractor main-icon"></i>
-                <h3>Seguro Agrícola</h3>
-                <div class="info">Protección esencial para tus cultivos frente a granizo, heladas y viento. Asegurá el rinde de tu campaña y tu inversión.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-fire-extinguisher main-icon"></i>
-                <h3>Seguro de Incendios</h3>
-                <div class="info">Respaldo fundamental para salvaguardar estructura, maquinarias y mercaderías de tu empresa ante la acción destructiva del fuego.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-truck-fast main-icon"></i>
-                <h3>Seguro de Transporte</h3>
-                <div class="info">Asegurá el valor de tu mercadería en tránsito (terrestre, aéreo o marítimo) contra choques, vuelcos y robos en ruta.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-gears main-icon"></i>
-                <h3>Seguro Técnico</h3>
-                <div class="info">Cobertura para equipos electrónicos, maquinaria pesada y equipos de contratistas frente a daños accidentales.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-industry main-icon"></i>
-                <h3>Todo Riesgo Operativo</h3>
-                <div class="info">Diseñado para grandes empresas e industrias, protegiendo contra daños materiales y la pérdida de beneficios por siniestros.</div>
-            </div>
-            <div class="card" onclick="toggleCard(this)">
-                <i class="fa-solid fa-users main-icon"></i>
-                <h3>Vida Colectivo</h3>
-                <div class="info">Coberturas obligatorias y optativas para tus empleados, brindando tranquilidad a sus familias y ayudando a retener talento.</div>
-            </div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-plane-up main-icon"></i><h3>Aeronavegación</h3><div class="info">Coberturas específicas para la actividad aeronáutica comercial y privada. Protegemos casco, responsabilidad civil hacia pasajeros y daños a terceros.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-hard-hat main-icon"></i><h3>ART</h3><div class="info">Cobertura obligatoria para proteger a tus empleados ante accidentes de trabajo o enfermedades profesionales, garantizando el cumplimiento legal.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-file-signature main-icon"></i><h3>Cauciones</h3><div class="info">Garantías para licitaciones públicas o privadas, ejecución de obras, aduana y alquileres comerciales. Aseguramos el cumplimiento de tus contratos.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-truck-moving main-icon"></i><h3>Flota de Vehículos</h3><div class="info">Asegurá todos los vehículos utilitarios, camiones o autos de tu empresa, optimizando costos y simplificando la gestión administrativa.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-store main-icon"></i><h3>Integral de Comercio</h3><div class="info">Protegé tu local, mercadería y herramientas de trabajo contra incendio, robo, daños por agua y cristales en una sola póliza multiriesgo.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-shield-halved main-icon"></i><h3>Responsabilidad Civil</h3><div class="info">Mantené a salvo el patrimonio de tu empresa frente a reclamos de terceros por daños ocurridos en el desarrollo de tu actividad comercial.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-tractor main-icon"></i><h3>Seguro Agrícola</h3><div class="info">Protección esencial para tus cultivos frente a granizo, heladas y viento. Asegurá el rinde de tu campaña y la inversión de tu trabajo.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-fire main-icon"></i><h3>Seguro de Incendios</h3><div class="info">Respaldo fundamental para salvaguardar la estructura edilicia, maquinarias y mercaderías ante la acción destructiva del fuego.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-truck-fast main-icon"></i><h3>Seguro de Transporte</h3><div class="info">Asegurá el valor de tu mercadería en tránsito (terrestre, aéreo o marítimo) contra choques, vuelcos, incendios y robos.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-gears main-icon"></i><h3>Seguro Técnico</h3><div class="info">Cobertura para equipos electrónicos, maquinaria pesada y equipos de contratistas frente a daños accidentales o fallas técnicas.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-industry main-icon"></i><h3>Todo Riesgo Operativo</h3><div class="info">Diseñado para grandes empresas e industrias, protegiendo contra daños materiales integrales y la consecuente pérdida de beneficios.</div></div>
+            <div class="card" onclick="toggleCard(this)" role="button" tabindex="0"><i class="fa-solid fa-users main-icon"></i><h3>Vida Colectivo</h3><div class="info">Coberturas obligatorias y optativas para tus empleados, brindando tranquilidad a sus familias y funcionando como un beneficio de retención de talento.</div></div>
         </div>
     </section>
 
     <section class="partners">
         <h3>Compañías que nos respaldan</h3>
         <div class="partner-logos">
-            <img src="fede.png" alt="Federación Patronal">
-            <img src="segunda.svg" alt="La Segunda">
-            <img src="mercantil.svg" alt="Mercantil Andina">
-            <img src="cnp.jpg" alt="CNP Seguros">
-            <img src="cauciones.jpg" alt="Aseguradores de Cauciones">
+            <img src="fede.png" alt="Federación Patronal" loading="lazy">
+            <img src="segunda.svg" alt="La Segunda" loading="lazy">
+            <img src="mercantil.svg" alt="Mercantil Andina" loading="lazy">
+            <img src="cnp.jpg" alt="CNP Seguros" loading="lazy">
+            <img src="cauciones.jpg" alt="Aseguradores de Cauciones" loading="lazy">
         </div>
     </section>
 
     <footer id="contacto">
         <div class="footer-grid">
-            <div class="footer-col">
-                <h3>Contacto</h3>
-                <p>Mario Cañadas Varela</p>
+            <div class="footer-info">
+                <h3>Mario Cañadas Varela</h3>
+                <p>Productor Asesor de Seguros</p>
                 <p>San Juan, Argentina</p>
                 <p>+54 9 264 415-3750</p>
-                <a href="https://www.linkedin.com/in/mario-cañadas-varela" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
             </div>
-            <div class="footer-col">
-                <h3>Matrícula</h3>
-                <p>SSN N° 101290</p>
-                <img src="ssn.svg" alt="SSN" class="ssn-logo">
+            <div class="footer-right">
+                <p>Matrícula SSN N° 101290</p>
+                <img src="ssn.svg" alt="Logo SSN" class="ssn-logo" loading="lazy">
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-copy">
             <p>&copy; 2026 Mario Cañadas Varela. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
         function toggleCard(element) {
-            let todasLasTarjetas = document.querySelectorAll('.card');
-            todasLasTarjetas.forEach(function(tarjeta) {
-                if (tarjeta !== element) tarjeta.classList.remove('active');
-            });
+            let cards = document.querySelectorAll('.card');
+            cards.forEach(c => { if(c !== element) c.classList.remove('active'); });
             element.classList.toggle('active');
         }
     </script>
