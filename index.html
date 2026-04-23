@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Mario Cañadas Varela - Productor Asesor de Seguros en San Juan, Argentina. Protegé tu patrimonio, familia o negocio con asesoramiento personalizado y las mejores compañías.">
+    <meta name="keywords" content="seguros, asesor de seguros, San Juan, ART, hogar, auto, responsabilidad civil, mala praxis">
+    <meta name="author" content="Mario Cañadas Varela">
+    <title>Mario Cañadas Varela | Asesor de Seguros</title>
+    <link rel="canonical" href="https://mariocanadasvarela-bit.github.io/seguros/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mario Cañadas Varela | Productor Asesor de Seguros">
+    <meta property="og:description" content="Protegé tu patrimonio, familia o negocio con asesoramiento personalizado en San Juan. Cotizá online o consultame por WhatsApp.">
+    <meta property="og:image" content="https://mariocanadasvarela-bit.github.io/seguros/logo-mario.jpg">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="800">
+    <meta property="og:url" content="https://mariocanadasvarela-bit.github.io/seguros/">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGK7KVZF9K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DGK7KVZF9K');
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        /* ========== VARIABLES Y ESTILOS BASE ========== */
+        :root {
+            --primary: #003b5c;
+            --secondary: #00a8e8;
+            --accent-red: #c62828;
+            --light: #f4f7f6;
+            --dark: #1a1a1a;
+            --wapp-green: #25D366;
+            --text-muted: #2c2c2c;
+            --border-light: #e0e0e0;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --bg-body: #ffffff;
+            --bg-section: #ffffff;
+            --text-color: #1a1a1a;
+            --card-bg: #ffffff;
+            --header-bg: #ffffff;
+            --footer-bg: #1a1a1a;
+            --footer-text: #ddd;
+            --neutral-color: #cccccc;
+            --ticker-bg: rgba(0,0,0,0.85);
+            --ticker-text: #ffffff;
+        }
+        body.dark {
+            --primary: #00a8e8;
+            --secondary: #00c8ff;
+            --accent-red: #ff5252;
+            --light: #2c2c2c;
+            --dark: #f4f7f6;
+            --text-muted: #cccccc;
+            --border-light: #444;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            --bg-body: #121212;
+            --bg-section: #1e1e1e;
+            --text-color: #e0e0e0;
+            --card-bg: #2a2a2a;
+            --header-bg: #1e1e1e;
+            --neutral-color: #555555;
+            --ticker-bg: #000000cc;
+            --ticker-text: #f0f0f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: auto; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--primary); color: white; padding: 8px 16px; z-index: 1100; text-decoration: none; font-weight: bold; }
+        .skip-link:focus { top: 0; }
+        
+        /* TICKER FIJO */
+        .ticker-fixed {
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            background-color: var(--ticker-bg);
+            backdrop-filter: blur(6px);
+            color: var(--ticker-text);
+            padding: 10px 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            min-height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ticker-content {
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
+        }
+        .ticker-content.fade-out { opacity: 0; }
+        .ticker-content i { margin-right: 8px; color: var(--secondary); }
+        .ticker-alert {
+            background-color: #ff5722;
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: white;
+            margin-left: 10px;
+            font-size: 0.75rem;
+        }
+        
+        /* MENÚ */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 5%;
+            background: var(--header-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+            gap: 15px;
+            transition: background 0.3s, transform 0.3s ease;
+            transform: translateY(0);
+        }
+        nav.hide-nav { transform: translateY(-100%); }
+        .nav-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: var(--primary); cursor: pointer; padding: 8px 12px; min-height: 44px; }
+        .nav-logo-container img { height: 140px; width: auto; border-radius: 12px; display: block; transition: 0.3s; }
+        .nav-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; transition: all 0.3s ease; }
+        .nav-btn { text-decoration: none; padding: 10px 20px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease; min-height: 44px; background: transparent; color: var(--primary); }
+        .nav-btn-quote { background: var(--accent-red); color: #fff; }
+        .nav-btn-wapp { background: var(--wapp-green); color: #fff; }
+        .nav-btn-contact { background: var(--primary); color: #fff; }
+        .nav-btn-methodology { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+        .nav-btn-methodology:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+        .nav-btn:hover { transform: translateY(-2px); filter: brightness(0.95); }
+        .theme-toggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); padding: 8px; min-height: 44px; min-width: 44px; }
+        
+        /* BOTONES FLOTANTES */
+        .go-top { position: fixed; bottom: 150px; right: 24px; width: 48px; height: 48px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .go-top.show { opacity: 1; visibility: visible; }
+        .go-top:hover { background: var(--secondary); transform: translateY(-3px); }
+        .floating-wapp { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 2000; box-shadow: 0 4px 12px rgba(0,0,0,0.25); text-decoration: none; color: #fff; background-color: var(--wapp-green); transition: transform 0.2s ease; }
+        .floating-wapp:hover { transform: scale(1.08); }
+        .chatbot-btn { position: fixed; bottom: 90px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; z-index: 2000; box-shadow: 0 4px 12px rgba(0,0,0,0.25); transition: 0.3s; border: none; }
+        .chatbot-btn:hover { transform: scale(1.08); background: var(--secondary); }
+        .chatbot-window { position: fixed; bottom: 160px; right: 24px; width: 320px; max-width: calc(100vw - 48px); background: var(--card-bg); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 1999; display: none; flex-direction: column; overflow: hidden; border: 1px solid var(--border-light); transition: 0.3s; }
+        .chatbot-window.show { display: flex; }
+        .chatbot-header { background: var(--primary); color: white; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .chatbot-header button { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
+        .chatbot-body { padding: 16px; max-height: 400px; overflow-y: auto; }
+        .faq-question { background: var(--light); padding: 10px 12px; margin-bottom: 10px; border-radius: 12px; cursor: pointer; transition: 0.2s; font-size: 0.9rem; font-weight: 600; color: var(--primary); }
+        .faq-question:hover { background: var(--secondary); color: white; }
+        .faq-answer { display: none; background: var(--bg-section); padding: 12px; margin-top: -8px; margin-bottom: 12px; border-radius: 12px; font-size: 0.85rem; border-left: 3px solid var(--secondary); }
+        .faq-answer.show { display: block; }
+        .load-more-faqs { background: var(--secondary); color: white; border: none; padding: 8px; border-radius: 30px; width: 100%; margin-top: 8px; cursor: pointer; font-weight: bold; }
+        
+        /* HERO */
+        .hero { position: relative; background: linear-gradient(135deg, rgba(0,59,92,0.92), rgba(0,59,92,0.88)), url('logo-2.jpg'); background-size: cover; background-position: center 30%; color: #fff; padding: 100px 5%; text-align: center; }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
+        .hero p { font-size: 1.25rem; margin-bottom: 40px; max-width: 850px; margin-left: auto; margin-right: auto; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+        .row-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+        .btn-jump { background: rgba(255,255,255,0.95); color: var(--primary); padding: 20px 32px; border-radius: 20px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: 0.3s; min-width: 240px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); cursor: pointer; border: none; }
+        .btn-jump:active { transform: scale(0.97); }
+        .btn-jump i { font-size: 2rem; color: var(--secondary); }
+        .btn-jump:hover { transform: translateY(-6px); background: #fff; }
+        .btn-jump.active { background: var(--primary); color: #fff; }
+        .btn-jump.active i { color: #fff; }
+        .btn-jump.cotizar { background: var(--accent-red); color: white; }
+        .btn-jump.cotizar i { color: white; }
+        .btn-jump.cotizar:hover { background: #b71c1c; }
+        
+        /* SLIDER DESLIZABLE */
+        .slider-3-container { display: flex; justify-content: center; margin: 15px 0 10px; }
+        .slider-3 { position: relative; width: 180px; height: 40px; background-color: var(--neutral-color); border-radius: 40px; cursor: grab; user-select: none; touch-action: none; }
+        .slider-3:active { cursor: grabbing; }
+        .slider-3-knob { position: absolute; width: 60px; height: 36px; background-color: white; border-radius: 36px; top: 2px; left: 2px; transition: left 0.1s linear; box-shadow: 0 2px 5px rgba(0,0,0,0.2); pointer-events: none; }
+        
+        /* Switch con etiquetas */
+        .switch-cards-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px auto 40px; background: var(--light); padding: 12px 24px; border-radius: 60px; width: fit-content; }
+        .switch-cards-label { font-size: 1rem; font-weight: 700; color: var(--primary); cursor: pointer; transition: 0.2s; }
+        .switch-cards-label.active { color: var(--secondary); text-decoration: underline; }
+        .slider-3.small { width: 120px; height: 30px; }
+        .slider-3.small .slider-3-knob { width: 40px; height: 26px; top: 2px; }
+        
+        .btn-how { background: rgba(255,255,255,0.9); color: var(--primary); padding: 14px 28px; border-radius: 60px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; transition: 0.3s; border: none; cursor: pointer; font-size: 1rem; }
+        .btn-how i { font-size: 1.2rem; color: var(--secondary); }
+        .btn-how:hover { background: #fff; transform: translateY(-3px); }
+        
+        section[id] { scroll-margin-top: 140px; }
+        .services-section { padding: 80px 5%; background: var(--bg-section); transition: background 0.3s; }
+        .bg-light { background-color: var(--light); }
+        .section-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; position: relative; color: var(--primary); }
+        .section-title::after { content: ''; width: 70px; height: 4px; background: var(--secondary); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+        
+        /* CARRUSEL */
+        .all-swiper { max-width: 1200px; margin: 0 auto 60px; padding: 0 20px; position: relative; }
+        .all-swiper .swiper-slide { height: auto; }
+        .all-swiper .card { margin: 0 10px; }
+        .section-subtitle { text-align: center; font-size: 1.8rem; font-weight: 700; color: var(--secondary); margin-bottom: 30px; }
+        .all-swiper .swiper-button-prev, .all-swiper .swiper-button-next { background-color: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .all-swiper .swiper-button-prev::after, .all-swiper .swiper-button-next::after { font-size: 18px; font-weight: bold; }
+        .all-swiper .swiper-button-prev { left: 0; }
+        .all-swiper .swiper-button-next { right: 0; }
+        .all-swiper .swiper-pagination { bottom: -30px; position: relative; margin-top: 20px; }
+        .all-swiper .swiper-pagination-bullet { background: var(--secondary); }
+        .all-swiper .swiper-pagination-bullet-active { background: var(--accent-red); }
+        
+        /* TARJETAS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 28px; max-width: 1300px; margin: 0 auto; }
+        .card { background: var(--card-bg); border-radius: 24px; box-shadow: var(--card-shadow); border: 1px solid var(--border-light); text-align: center; overflow: hidden; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s; position: relative; }
+        .card:focus-visible { outline: 3px solid var(--secondary); outline-offset: 2px; }
+        .card:hover { transform: translateY(-4px); border-color: var(--secondary); }
+        .card:active { transform: scale(0.98); }
+        .ripple { position: relative; overflow: hidden; }
+        .ripple:after { content: ""; display: block; position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; background-image: radial-gradient(circle, #fff 10%, transparent 10.01%); background-repeat: no-repeat; background-position: 50%; transform: scale(10, 10); opacity: 0; transition: transform .5s, opacity 1s; }
+        .ripple:active:after { transform: scale(0, 0); opacity: 0.3; transition: 0s; }
+        .tooltip-text { visibility: hidden; opacity: 0; width: 220px; background-color: var(--primary); color: #fff; text-align: center; border-radius: 8px; padding: 6px 10px; position: absolute; z-index: 10; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; font-size: 0.75rem; font-weight: normal; transition: opacity 0.3s; pointer-events: none; }
+        .card:hover .tooltip-text { visibility: visible; opacity: 1; }
+        .tooltip-text::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: var(--primary) transparent transparent transparent; }
+        .popular-badge { position: absolute; top: 12px; right: 12px; background: #ffc107; color: #333; font-size: 0.7rem; font-weight: bold; padding: 4px 10px; border-radius: 30px; z-index: 5; display: flex; align-items: center; gap: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card-button { width: 100%; background: none; border: none; padding: 30px 20px; font-family: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative; }
+        .card-button i.main-icon { font-size: 2.8rem; color: var(--secondary); transition: transform 0.2s ease; }
+        .card:hover .card-button i.main-icon { transform: scale(1.1) rotate(3deg); }
+        .card-button h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); font-size: 1.2rem; margin: 0; }
+        .card .info { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; font-size: 0.95rem; color: var(--text-muted); text-align: left; padding: 0 20px; background: var(--bg-section); border-top: 1px solid transparent; }
+        .card.active .info { max-height: 400px; opacity: 1; padding: 20px 20px 24px; border-top-color: var(--border-light); }
+        .card.active .card-button i.main-icon { color: var(--accent-red); }
+        .btn-whatsapp-card { display: inline-block; background: var(--wapp-green); color: white; padding: 8px 16px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 0.8rem; margin-top: 12px; transition: 0.2s; }
+        .btn-whatsapp-card:hover { background: #128C7E; transform: translateY(-2px); }
+        
+        /* FORMULARIO */
+        .contact-container { max-width: 720px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 28px; box-shadow: var(--card-shadow); border: 1px solid var(--border-light); }
+        .form-group { margin-bottom: 22px; text-align: left; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
+        .form-control, .form-select { width: 100%; padding: 12px 16px; border-radius: 14px; border: 1px solid #ccc; font-family: 'Open Sans', sans-serif; font-size: 1rem; transition: 0.2s; background: var(--bg-body); color: var(--text-color); }
+        .form-select { background-color: var(--bg-body); cursor: pointer; }
+        .form-control:focus, .form-select:focus { outline: none; border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(0,168,232,0.2); }
+        .btn-submit { background: var(--primary); color: #fff; border: none; padding: 14px 24px; border-radius: 40px; font-weight: 800; font-family: 'Montserrat', sans-serif; cursor: pointer; width: 100%; transition: 0.2s; font-size: 1rem; }
+        .btn-submit:hover { background: var(--secondary); transform: translateY(-2px); }
+        .form-status { margin-top: 16px; font-size: 0.9rem; text-align: center; font-weight: 600; }
+        .ssn-seal { display: inline-flex; align-items: center; gap: 10px; background: var(--light); border-radius: 60px; padding: 8px 20px; margin: 20px auto 0; width: fit-content; font-size: 0.85rem; font-weight: 600; color: var(--primary); }
+        
+        /* PARTNERS Y FOOTER */
+        .partners { padding: 60px 5%; background: var(--bg-section); text-align: center; }
+        .partners h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--primary); margin-bottom: 40px; }
+        .partner-logos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; }
+        .partner-logos img { height: 55px; width: auto; filter: grayscale(0.3); opacity: 0.8; transition: 0.3s; }
+        .partner-logos img:hover { filter: grayscale(0); opacity: 1; transform: scale(1.05); }
+        footer { background: var(--footer-bg); color: var(--footer-text); padding: 60px 5% 30px; transition: background 0.3s; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-right { text-align: right; }
+        .ssn-logo { height: 45px; filter: brightness(0) invert(1); margin-top: 16px; }
+        .footer-copy { text-align: center; margin-top: 50px; font-size: 0.8rem; opacity: 0.6; }
+        a[href^="tel"] { color: var(--footer-text); text-decoration: none; }
+        a[href^="tel"]:hover { text-decoration: underline; }
+        .btn-vcard { display: inline-block; background: #2e7d32; color: white; padding: 8px 16px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 0.85rem; margin-top: 12px; transition: 0.2s; border: none; cursor: pointer; }
+        .btn-vcard:hover { background: #1b5e20; transform: translateY(-2px); }
+        
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .nav-actions { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 10px; margin-top: 10px; }
+            .nav-actions.show { display: flex; }
+            .nav-btn { justify-content: center; }
+            .nav-logo-container img { height: 90px; }
+            .hero h1 { font-size: 1.2rem; }
+            .hero p { font-size: 1rem; }
+            .btn-jump { padding: 14px 20px; min-width: 200px; }
+            .section-title { font-size: 1.8rem; }
+            .contact-container { padding: 24px; }
+            .footer-right { text-align: left; }
+            .go-top { bottom: 150px; right: 16px; width: 44px; height: 44px; }
+            .floating-wapp { bottom: 24px; right: 16px; width: 48px; height: 48px; font-size: 24px; }
+            .chatbot-btn { bottom: 90px; right: 16px; width: 48px; height: 48px; font-size: 24px; }
+            .chatbot-window { bottom: 150px; right: 16px; width: calc(100vw - 32px); }
+            section[id] { scroll-margin-top: 150px; }
+            .tooltip-text { display: none; }
+            .switch-cards-container { gap: 10px; padding: 8px 16px; }
+            .switch-cards-label { font-size: 0.85rem; }
+            .slider-3 { width: 140px; height: 32px; }
+            .slider-3-knob { width: 46px; height: 28px; top: 2px; }
+            .ticker-content { font-size: 0.75rem; }
+            .all-swiper .swiper-button-prev, .all-swiper .swiper-button-next { width: 30px; height: 30px; }
+            .all-swiper .swiper-button-prev::after, .all-swiper .swiper-button-next::after { font-size: 14px; }
+            .all-swiper .swiper-button-prev { left: 0; }
+            .all-swiper .swiper-button-next { right: 0; }
+        }
+        
+        #personas, #negocios { display: none; }
+        #personas.active-section, #negocios.active-section { display: block; animation: fadeInUp 0.5s ease forwards; background: #f8f9fa; border-radius: 24px; border: 1px solid var(--secondary); padding: 40px 5% !important; margin: 0 5%; }
+        body.dark #personas.active-section, body.dark #negocios.active-section { background: #2c2c2c; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <a href="https://api.whatsapp.com/send?phone=5492644153750&text=Hola%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20informaci%C3%B3n%20sobre%20seguros" class="floating-wapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <a href="#" class="go-top" id="goTopBtn" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+    
+    <button class="chatbot-btn" id="chatbotBtn" aria-label="Abrir chat de preguntas frecuentes">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <span><i class="fa-regular fa-circle-question"></i> Preguntas Frecuentes</span>
+            <button id="closeChatbotBtn"><i class="fa-solid fa-times"></i></button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody"></div>
+    </div>
+    
+    <div class="ticker-fixed" id="tickerFixed">
+        <div class="ticker-content" id="tickerContent">Cargando consejos...</div>
+    </div>
+    
+    <nav aria-label="Navegación principal" id="mainNav">
+        <div class="nav-logo-container"><img src="perfil.jpg" alt="Mario Cañadas Varela - Productor de Seguros"></div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        <div class="nav-actions" id="navActions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo oscuro/claro"><i class="fa-solid fa-moon"></i></button>
+            <a href="#asesoramiento" class="nav-btn nav-btn-methodology" id="methodologyLink"><i class="fa-solid fa-circle-info"></i> <span>Cómo trabajamos</span></a>
+            <a href="https://www.lasegundaonline.com.ar/cotizacion-online/agencia/5875" class="nav-btn nav-btn-quote" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-calculator"></i> <span>Cotizador Online</span></a>
+            <a href="https://api.whatsapp.com/send?phone=5492644153750&text=Hola%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20informaci%C3%B3n%20sobre%20seguros" class="nav-btn nav-btn-wapp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></a>
+            <a href="#contacto" class="nav-btn nav-btn-contact" id="contactNavLink"><i class="fa-regular fa-envelope"></i> <span>Consultar</span></a>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <h1>Mi tarea</h1>
+        <p>Protejo lo que más valorás. Analizo tus riesgos y diseño la estrategia de cobertura ideal para tu patrimonio o tu negocio.</p>
+        <div class="row-buttons">
+            <a href="https://www.lasegundaonline.com.ar/cotizacion-online/agencia/5875" class="btn-jump cotizar" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-calculator"></i> Cotización</a>
+            <a href="tel:+5492644153750" class="btn-jump cotizar" style="background: #2e7d32;"><i class="fa-solid fa-phone"></i> Llamar ahora</a>
+        </div>
+        <div class="row-buttons">
+            <button id="showPersonasBtn" class="btn-jump"><i class="fa-solid fa-house-user"></i> Personas y Familias</button>
+            <button id="showNegociosBtn" class="btn-jump"><i class="fa-solid fa-briefcase"></i> Empresas y Negocios</button>
+        </div>
+        
+        <div class="slider-3-container">
+            <div class="slider-3" id="heroSlider" data-position="center">
+                <div class="slider-3-knob"></div>
+            </div>
+        </div>
+        
+        <button class="btn-how" id="howWeWorkBtn"><i class="fa-solid fa-circle-info"></i> ¿Cómo trabajamos?</button>
+    </header>
+    
+    <main id="main-content">
+        <section class="services-section bg-light" id="asesoramiento" aria-labelledby="metodologia-title">
+            <h2 id="metodologia-title" class="section-title">Asesoramiento Integral</h2>
+            <div class="grid">
+                <div class="card-process"><h3>Diagnóstico y análisis</h3><p>Identificamos, analizamos y evaluamos los riesgos para determinar las coberturas que protegen cada aspecto de tu patrimonio.</p></div>
+                <div class="card-process"><h3>Auditoria de coberturas</h3><p>Analizamos tu programa actual y evaluamos la adecuación de las coberturas al riesgo real existente.</p></div>
+                <div class="card-process"><h3>Estrategia de Riesgo</h3><p>Negociamos con las aseguradoras líderes las mejores condiciones de precio y cobertura para vos.</p></div>
+            </div>
+        </section>
+
+        <div class="all-swiper">
+            <div class="section-subtitle">🔄 Seguros destacados</div>
+            <div class="swiper" id="allSwiper">
+                <div class="swiper-wrapper" id="allCardsWrapper"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <div class="switch-cards-container">
+            <span id="switchCardsPersonas" class="switch-cards-label">Personas y Familias</span>
+            <div class="slider-3 small" id="cardsSlider" data-position="center">
+                <div class="slider-3-knob"></div>
+            </div>
+            <span id="switchCardsNegocios" class="switch-cards-label">Empresas y Negocios</span>
+        </div>
+
+        <section id="personas" class="services-section" aria-labelledby="personas-title">
+            <h2 id="personas-title" class="section-title">Seguros de Personas y Familias</h2>
+            <div class="grid" id="cards-personas"></div>
+        </section>
+        
+        <section id="negocios" class="services-section bg-light" aria-labelledby="negocios-title">
+            <h2 id="negocios-title" class="section-title">Seguros de Negocios y Empresas</h2>
+            <div class="grid" id="cards-negocios"></div>
+        </section>
+        
+        <section id="contacto" class="services-section" aria-labelledby="contacto-title">
+            <h2 id="contacto-title" class="section-title">Enviame tu consulta</h2>
+            <div class="contact-container">
+                <form id="contact-form" action="https://formspree.io/f/xyklbelk" method="POST">
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de Mario Cañadas">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribí tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="264 XXX-XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo_seguro">Tipo de seguro (opcional)</label>
+                        <select id="tipo_seguro" name="tipo_seguro" class="form-select">
+                            <option value="">Seleccioná una opción</option>
+                            <option value="auto">Auto</option>
+                            <option value="moto">Moto</option>
+                            <option value="hogar">Hogar</option>
+                            <option value="salud">Salud / ART</option>
+                            <option value="comercio">Comercio / Empresa</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">¿En qué puedo ayudarte? *</label>
+                        <textarea id="mensaje" name="mensaje" class="form-control" rows="5" placeholder="Escribí tu mensaje aquí..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit" data-fs-submit-btn>Enviar Mensaje</button>
+                    <div class="form-status" data-fs-success style="display:none; color:#2e7d32;"></div>
+                    <div class="form-status" data-fs-error style="display:none; color:#c62828;"></div>
+                    <div id="customSuccessMessage" style="display:none; margin-top: 20px; padding: 15px; background: #e8f5e9; border-radius: 16px; color: #2e7d32; text-align: center; font-weight: bold;">
+                        <i class="fa-solid fa-circle-check" style="font-size: 1.5rem; margin-right: 8px;"></i> ¡Muchas gracias! El mensaje fue enviado. Nos estaremos contactando a la brevedad.
+                    </div>
+                </form>
+                <div class="ssn-seal"><i class="fa-solid fa-certificate"></i> Productor Asesor de Seguros - Matrícula SSN N° 101290</div>
+            </div>
+            <div style="max-width: 1000px; margin: 40px auto 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.270921471714!2d-68.55294572502693!3d-31.544158602283995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96813fee8974a631%3A0xe54d2092cc7728ce!2sVirgen%20de%20Lourdes%201520%2C%20J5402DUR%20San%20Juan!5e0!3m2!1ses-419!2sar!4v1713822158654!5m2!1ses-419!2sar" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0; display: block;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </main>
+    
+    <section class="partners" aria-labelledby="partners-title">
+        <h3 id="partners-title">Compañías que nos respaldan</h3>
+        <div class="partner-logos">
+            <img src="fede.png" alt="Federación Patronal Seguros" loading="lazy">
+            <img src="segunda.svg" alt="La Segunda Seguros" loading="lazy">
+            <img src="mercantil.svg" alt="Mercantil Andina" loading="lazy">
+            <img src="cnp.jpg" alt="CNP Seguros" loading="lazy">
+            <img src="cauciones.jpg" alt="Aseguradores de Cauciones" loading="lazy">
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>Mario Cañadas Varela</h3>
+                <p>Productor Asesor de Seguros</p>
+                <p>San Juan, Argentina</p>
+                <p><a href="tel:+5492644153750" aria-label="Llamar a Mario Cañadas" style="font-size: 1.1rem; font-weight: bold;">📞 +54 9 264 415-3750</a></p>
+                <p><a href="mailto:mariocanadasvarela@gmail.com" style="color:var(--footer-text);">mariocanadasvarela@gmail.com</a></p>
+                <button id="saveContactBtn" class="btn-vcard"><i class="fa-regular fa-address-card"></i> Guardar contacto</button>
+            </div>
+            <div class="footer-right">
+                <p>Matrícula SSN N° 101290</p>
+                <img src="ssn.svg" alt="Superintendencia de Seguros de la Nación" class="ssn-logo" loading="lazy">
+            </div>
+        </div>
+        <div class="footer-copy"><p>&copy; 2026 Mario Cañadas Varela. Todos los derechos reservados.</p></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'xyklbelk' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+    <script>
+        // ========== PRODUCTOS (24 tarjetas) ==========
+        const productosPersonas = [
+            { icono: "fa-user-shield", titulo: "Accidentes Personales", descripcion: "Seguridad y respaldo económico inmediato ante imprevistos, accidentes o invalidez ocurridos durante tu jornada laboral o tu vida diaria.", popular: false },
+            { icono: "fa-golf-ball-tee", titulo: "Artículos Deportivos", descripcion: "Protegé tu equipamiento deportivo de alto valor (golf, esquí, kitesurf, etc.) contra robo, pérdida o daños durante tus prácticas o viajes.", popular: false },
+            { icono: "fa-car", titulo: "Autos", descripcion: "Conocemos la comodidad e independencia que generan los vehículos. Te garantizamos confianza y tranquilidad total en cada viaje que emprendas.", popular: true },
+            { icono: "fa-bicycle", titulo: "Bicicletas y Eco Movilidad", descripcion: "La movilidad sustentable (monopatín, moto eléctrica) implica riesgos: accidentes, daños a terceros y robos. Disfrutá la ecomovilidad con la tranquilidad de estar protegido.", popular: false },
+            { icono: "fa-ship", titulo: "Embarcaciones", descripcion: "Navegá sin preocupaciones. Amplia cobertura para lanchas, yates y motos de agua ante daños propios, robo, incendio y responsabilidad civil hacia terceros.", popular: false },
+            { icono: "fa-house-chimney", titulo: "Hogar", descripcion: "Cada hogar merece un seguro a medida. Protegé tu casa contra robos, incendios, daños por agua y reclamos de terceros.", popular: true },
+            { icono: "fa-motorcycle", titulo: "Motos", descripcion: "Disfrutá la libertad de moverte en dos ruedas con el respaldo total de la compañía ante robos, daños por accidentes y reclamos de terceros.", popular: false },
+            { icono: "fa-scale-balanced", titulo: "RC Mala Praxis (Profesionales)", descripcion: "Desarrollate con el respaldo de las mejores aseguradoras ante reclamos por error u omisión. Incluye: Abogados, Ingenieros, Contadores, Arquitectos, Escribanos y Maestros Mayor de Obra.", popular: false },
+            { icono: "fa-stethoscope", titulo: "RC Mala Praxis (Salud)", descripcion: "Respaldo ante indemnizaciones por actos médicos derivados de tus servicios. Cubre: Médicos, Odontólogos, Psicólogos, Enfermeros, Nutricionistas, Kinesiólogos y más.", popular: false },
+            { icono: "fa-piggy-bank", titulo: "Retiro", descripcion: "Planificá tu futuro hoy. Una herramienta de ahorro e inversión pensada para mantener tu calidad de vida y tranquilidad el día de mañana.", popular: false },
+            { icono: "fa-plane-departure", titulo: "Seguro de Viaje", descripcion: "Asistencia médica integral, pérdida de equipaje y respaldo ante cualquier imprevisto en tus viajes por el mundo.", popular: false },
+            { icono: "fa-laptop-code", titulo: "Tecnología Portátil", descripcion: "Asegurá tus dispositivos electrónicos ante robo o daños accidentales en cualquier lugar.", popular: false }
+        ];
+        const productosNegocios = [
+            { icono: "fa-plane-up", titulo: "Aeronavegación", descripcion: "Coberturas específicas para la actividad aeronáutica comercial y privada. Protegemos casco, responsabilidad civil hacia pasajeros y daños a terceros.", popular: false },
+            { icono: "fa-hard-hat", titulo: "ART", descripcion: "Cobertura obligatoria para proteger a tus empleados ante accidentes de trabajo o enfermedades profesionales, garantizando el cumplimiento legal.", popular: true },
+            { icono: "fa-file-signature", titulo: "Cauciones", descripcion: "Garantías para licitaciones públicas o privadas, ejecución de obras, aduana y alquileres comerciales. Aseguramos el cumplimiento de tus contratos.", popular: false },
+            { icono: "fa-truck-moving", titulo: "Flota de Vehículos", descripcion: "Asegurá todos los vehículos utilitarios, camiones o autos de tu empresa, optimizando costos y simplificando la gestión administrativa.", popular: false },
+            { icono: "fa-store", titulo: "Integral de Comercio", descripcion: "Protegé tu local, mercadería y herramientas de trabajo contra incendio, robo, daños por agua y cristales en una sola póliza multiriesgo.", popular: false },
+            { icono: "fa-shield-halved", titulo: "Responsabilidad Civil", descripcion: "Mantené a salvo el patrimonio de tu empresa frente a reclamos de terceros por daños ocurridos en el desarrollo de tu actividad comercial.", popular: false },
+            { icono: "fa-tractor", titulo: "Seguro Agrícola", descripcion: "Protección esencial para tus cultivos frente a granizo, heladas y viento. Asegurá el rinde de tu campaña y la inversión de tu trabajo.", popular: false },
+            { icono: "fa-fire", titulo: "Seguro de Incendios", descripcion: "Respaldo fundamental para salvaguardar la estructura edilicia, maquinarias y mercaderías ante la acción destructiva del fuego.", popular: false },
+            { icono: "fa-truck-fast", titulo: "Seguro de Transporte", descripcion: "Asegurá el valor de tu mercadería en tránsito (terrestre, aéreo o marítimo) contra choques, vuelcos, incendios y robos.", popular: false },
+            { icono: "fa-gears", titulo: "Seguro Técnico", descripcion: "Cobertura para equipos electrónicos, maquinaria pesada y equipos de contratistas frente a daños accidentales o fallas técnicas.", popular: false },
+            { icono: "fa-industry", titulo: "Todo Riesgo Operativo", descripcion: "Diseñado para grandes empresas e industrias, protegiendo contra daños materiales integrales y la consecuente pérdida de beneficios.", popular: false },
+            { icono: "fa-users", titulo: "Vida Colectivo", descripcion: "Coberturas obligatorias y optativas para tus empleados, brindando tranquilidad a sus familias y funcionando como un beneficio de retención de talento.", popular: false }
+        ];
+
+        productosPersonas.sort((a,b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0));
+        productosNegocios.sort((a,b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0));
+
+        function crearCard(producto) {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card ripple';
+            
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip-text';
+            tooltip.textContent = producto.descripcion.substring(0, 100) + (producto.descripcion.length > 100 ? '…' : '');
+            cardDiv.appendChild(tooltip);
+            
+            if (producto.popular) {
+                const badge = document.createElement('div');
+                badge.className = 'popular-badge';
+                badge.innerHTML = '<i class="fa-solid fa-star"></i> Más popular';
+                cardDiv.appendChild(badge);
+            }
+            
+            const button = document.createElement('button');
+            button.className = 'card-button';
+            button.setAttribute('aria-expanded', 'false');
+            button.innerHTML = `
+                <i class="fa-solid ${producto.icono} main-icon"></i>
+                <h3>${producto.titulo}</h3>
+                <div class="info" aria-hidden="true">
+                    ${producto.descripcion}
+                    <br><br>
+                    <a href="https://api.whatsapp.com/send?phone=5492644153750&text=Hola,%20quiero%20más%20información%20sobre%20el%20seguro%20de%20${encodeURIComponent(producto.titulo)}" class="btn-whatsapp-card" target="_blank"><i class="fa-brands fa-whatsapp"></i> Consultar ahora</a>
+                </div>
+            `;
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleCard(cardDiv, button);
+            });
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCard(cardDiv, button);
+                }
+            });
+            cardDiv.appendChild(button);
+            return cardDiv;
+        }
+
+        // Permite cerrar la misma tarjeta al hacer clic de nuevo
+        function toggleCard(cardElement, buttonElement) {
+            const isActive = cardElement.classList.contains('active');
+            if (isActive) {
+                cardElement.classList.remove('active');
+                buttonElement.setAttribute('aria-expanded', 'false');
+            } else {
+                const parentGrid = cardElement.closest('.grid');
+                if (parentGrid) {
+                    parentGrid.querySelectorAll('.card').forEach(card => {
+                        const btn = card.querySelector('.card-button');
+                        card.classList.remove('active');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                }
+                cardElement.classList.add('active');
+                buttonElement.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        const containerPersonas = document.getElementById('cards-personas');
+        const containerNegocios = document.getElementById('cards-negocios');
+        productosPersonas.forEach(p => containerPersonas.appendChild(crearCard(p)));
+        productosNegocios.forEach(p => containerNegocios.appendChild(crearCard(p)));
+
+        // ========== SLIDER DESLIZABLE (arrastrable) ==========
+        function makeSliderDraggable(sliderElement, onChange) {
+            let knob = sliderElement.querySelector('.slider-3-knob');
+            let startX = 0, startLeft = 0;
+            let isDragging = false;
+            let maxLeft = sliderElement.clientWidth - knob.offsetWidth;
+            function getLeftFromX(clientX) {
+                let newLeft = startLeft + (clientX - startX);
+                return Math.min(maxLeft, Math.max(0, newLeft));
+            }
+            function onMouseMove(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                let clientX = e.clientX ?? (e.touches ? e.touches[0].clientX : 0);
+                let newLeft = getLeftFromX(clientX);
+                knob.style.left = newLeft + 'px';
+                knob.style.transition = 'none';
+            }
+            function onMouseUp(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                let finalLeft = parseFloat(knob.style.left);
+                let leftBound = maxLeft * 0.25;
+                let rightBound = maxLeft * 0.75;
+                let newPosition;
+                if (finalLeft < leftBound) newPosition = 'left';
+                else if (finalLeft > rightBound) newPosition = 'right';
+                else newPosition = 'center';
+                let targetLeft = { left: 2, center: maxLeft/2, right: maxLeft }[newPosition];
+                knob.style.transition = '';
+                knob.style.left = targetLeft + 'px';
+                if (onChange && typeof onChange === 'function') onChange(newPosition);
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+                document.removeEventListener('touchmove', onMouseMove);
+                document.removeEventListener('touchend', onMouseUp);
+            }
+            function onMouseDown(e) {
+                e.preventDefault();
+                startX = e.clientX ?? (e.touches ? e.touches[0].clientX : 0);
+                startLeft = parseFloat(knob.style.left);
+                if (isNaN(startLeft)) startLeft = 0;
+                isDragging = true;
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+                document.addEventListener('touchmove', onMouseMove);
+                document.addEventListener('touchend', onMouseUp);
+            }
+            sliderElement.addEventListener('mousedown', onMouseDown);
+            sliderElement.addEventListener('touchstart', onMouseDown);
+            let initialPos = sliderElement.getAttribute('data-position') || 'center';
+            let maxL = sliderElement.clientWidth - knob.offsetWidth;
+            let leftVal = { left: 2, center: maxL/2, right: maxL }[initialPos];
+            knob.style.left = leftVal + 'px';
+        }
+
+        // ========== SLIDERS Y SECCIONES ==========
+        const personasSection = document.getElementById('personas');
+        const negociosSection = document.getElementById('negocios');
+        const showPersonasBtn = document.getElementById('showPersonasBtn');
+        const showNegociosBtn = document.getElementById('showNegociosBtn');
+        const heroSlider = document.getElementById('heroSlider');
+        const cardsSlider = document.getElementById('cardsSlider');
+        const switchCardsLabelPersonas = document.getElementById('switchCardsPersonas');
+        const switchCardsLabelNegocios = document.getElementById('switchCardsNegocios');
+        let currentPosition = 'center';
+
+        function setActiveSection(position) {
+            currentPosition = position;
+            heroSlider.setAttribute('data-position', position);
+            cardsSlider.setAttribute('data-position', position);
+            if (position === 'left') {
+                switchCardsLabelPersonas.classList.add('active');
+                switchCardsLabelNegocios.classList.remove('active');
+            } else if (position === 'right') {
+                switchCardsLabelNegocios.classList.add('active');
+                switchCardsLabelPersonas.classList.remove('active');
+            } else {
+                switchCardsLabelPersonas.classList.remove('active');
+                switchCardsLabelNegocios.classList.remove('active');
+            }
+            if (position === 'left') {
+                showPersonasBtn.classList.add('active');
+                showNegociosBtn.classList.remove('active');
+                personasSection.classList.add('active-section');
+                negociosSection.classList.remove('active-section');
+                setTimeout(() => personasSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+            } else if (position === 'right') {
+                showNegociosBtn.classList.add('active');
+                showPersonasBtn.classList.remove('active');
+                negociosSection.classList.add('active-section');
+                personasSection.classList.remove('active-section');
+                setTimeout(() => negociosSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+            } else {
+                showPersonasBtn.classList.remove('active');
+                showNegociosBtn.classList.remove('active');
+                personasSection.classList.remove('active-section');
+                negociosSection.classList.remove('active-section');
+            }
+        }
+
+        function handleSliderChange(newPos) {
+            if (newPos !== currentPosition) setActiveSection(newPos);
+        }
+
+        makeSliderDraggable(heroSlider, handleSliderChange);
+        makeSliderDraggable(cardsSlider, handleSliderChange);
+
+        function handleClick(slider, e) {
+            const rect = slider.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            const leftBound = width * 0.25;
+            const rightBound = width * 0.75;
+            let newPosition = currentPosition;
+            if (clickX < leftBound) newPosition = 'left';
+            else if (clickX > rightBound) newPosition = 'right';
+            else newPosition = 'center';
+            if (newPosition !== currentPosition) setActiveSection(newPosition);
+        }
+        heroSlider.addEventListener('click', (e) => handleClick(heroSlider, e));
+        cardsSlider.addEventListener('click', (e) => handleClick(cardsSlider, e));
+
+        showPersonasBtn.addEventListener('click', (e) => { e.preventDefault(); setActiveSection('left'); });
+        showNegociosBtn.addEventListener('click', (e) => { e.preventDefault(); setActiveSection('right'); });
+        switchCardsLabelPersonas.addEventListener('click', () => setActiveSection('left'));
+        switchCardsLabelNegocios.addEventListener('click', () => setActiveSection('right'));
+
+        setActiveSection('center');
+
+        // ========== TICKER INTERCALANDO CLIMA CADA 5 CONSEJOS ==========
+        const tipsList = [
+            "¿Sabías que la cláusula de ajuste protege tu auto de la inflación?",
+            "Revisá tu póliza cada 6 meses para mantener el valor asegurado actualizado.",
+            "En caso de granizo, cubrí tu auto con una lona si no tenés cochera.",
+            "Mantené siempre la tarjeta de circulación en el auto, incluso en digital.",
+            "Contratar un seguro con franquicia baja puede ahorrarte dinero a largo plazo.",
+            "El seguro de hogar no solo cubre incendio, sino también robo y responsabilidad civil.",
+            "Si viajás al extranjero, el Certificado Mercosur extiende tu cobertura.",
+            "La ART es obligatoria para todos los empleados registrados.",
+            "En un accidente, nunca aceptes pagar sin denunciar a la compañía.",
+            "Sacá fotos y videos del daño antes de mover los vehículos.",
+            "El seguro de vida puede ser una herramienta de ahorro a futuro.",
+            "La flota de vehículos se puede asegurar con una sola póliza.",
+            "El robo de ruedas no siempre está cubierto; revisá tu póliza.",
+            "La responsabilidad civil profesional es clave para médicos y abogados.",
+            "Si alquilás, el seguro de hogar también protege tus pertenencias.",
+            "Los seguros agrícolas protegen tu cosecha contra granizo y heladas.",
+            "El seguro de transporte cubre la mercadería durante el viaje.",
+            "La cláusula de ajuste aplica solo en robo o destrucción total.",
+            "Podés pagar tu seguro con débito automático o tarjeta de crédito.",
+            "Si cambiás de domicilio, avisanos para actualizar la póliza.",
+            "El seguro de motos suele ser más económico que el de autos.",
+            "La tecnología portátil (notebook, celular) se puede asegurar.",
+            "En caso de granizo, revisá tu auto en busca de abolladuras.",
+            "Si tenés un accidente, no te olvides de pedir los datos del otro.",
+            "La denuncia de siniestro se puede hacer por teléfono o app.",
+            "El seguro de viaje incluye asistencia médica y pérdida de equipaje.",
+            "El retiro programado te permite ahorrar para tu jubilación.",
+            "La mala praxis médica es un seguro muy solicitado.",
+            "Los seguros para comercios cubren cristales, mercadería y robo.",
+            "Si tenés un local, el seguro de responsabilidad civil es esencial.",
+            "La ART también cubre enfermedades profesionales.",
+            "Un buen seguro te da tranquilidad para vos y tu familia.",
+            "Compará coberturas, no solo precios, antes de contratar.",
+            "Leé las exclusiones de tu póliza para evitar sorpresas.",
+            "Guardá la póliza digital en la nube y en tu celular.",
+            "Actualizá el valor asegurado de tu auto cada año.",
+            "Si vendés tu auto, transferí el seguro al nuevo dueño.",
+            "El seguro de hogar también cubre daños por agua.",
+            "Contratar un seguro con franquicia baja sube la prima.",
+            "El cumplimiento de las normas de seguridad reduce el riesgo.",
+            "Un asesor de seguros te ayuda a elegir la mejor cobertura.",
+            "No te quedes sin seguro, la multa por circular sin él es alta.",
+            "El Certificado de Cobertura es digital y tiene la misma validez.",
+            "Si tenés dudas, consultame antes de firmar cualquier cosa.",
+            "Revisá que tu póliza incluya asistencia en viaje.",
+            "El seguro para bicicletas cada vez es más común.",
+            "Los artículos deportivos de alto valor se pueden asegurar.",
+            "El seguro de vida colectivo es un beneficio para tus empleados.",
+            "El seguro técnico cubre equipos electrónicos y maquinaria.",
+            "Mantené tus datos personales actualizados en la compañía."
+        ];
+
+        let currentWeatherData = { temp: null, description: '', isAlert: false, alertText: '' };
+        let tickerInterval = null;
+
+        function buildTickerItems() {
+            let items = [];
+            let weatherItem = '';
+            if (currentWeatherData.temp !== null) {
+                weatherItem = `<i class="fa-solid fa-cloud-sun" style="color: white;"></i> ${currentWeatherData.temp}°C - ${currentWeatherData.description}`;
+                if (currentWeatherData.isAlert) weatherItem += ` <span class="ticker-alert">${currentWeatherData.alertText}</span>`;
+            } else {
+                weatherItem = `<i class="fa-solid fa-cloud-sun"></i> ${currentWeatherData.description}`;
+            }
+            items.push(weatherItem);
+            for (let i = 0; i < tipsList.length; i += 5) {
+                for (let j = 0; j < 5 && i+j < tipsList.length; j++) {
+                    items.push(`<i class="fa-regular fa-lightbulb"></i> ${tipsList[i+j]}`);
+                }
+                if (i+5 < tipsList.length) items.push(weatherItem);
+            }
+            items.push(weatherItem);
+            return items;
+        }
+
+        async function fetchWeather() {
+            try {
+                const apiKey = 'e76997893534922e2d7ec576890042c6';
+                const lat = -31.537;
+                const lon = -68.536;
+                const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${apiKey}`;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Clima no disponible');
+                const data = await response.json();
+                const temp = Math.round(data.main.temp);
+                const description = data.weather[0].description;
+                let isAlert = description.includes('tormenta') || description.includes('granizo') || description.includes('lluvia fuerte');
+                let alertText = '';
+                if (isAlert) {
+                    alertText = description.includes('granizo') ? '⚠️ ALERTA DE GRANIZO. Revisá tu cobertura de auto y hogar.' :
+                                (description.includes('tormenta') ? '⚠️ ALERTA DE TORMENTA. Revisá tu seguro ante posibles daños.' :
+                                '⚠️ CLIMA ADVERSO. Consultá tu póliza.');
+                }
+                currentWeatherData = { temp, description, isAlert, alertText };
+            } catch (error) {
+                currentWeatherData = { temp: null, description: 'Clima no disponible', isAlert: false, alertText: '' };
+                setTimeout(fetchWeather, 5000);
+                return;
+            }
+            updateTicker();
+        }
+
+        function updateTicker() {
+            const container = document.getElementById('tickerContent');
+            if (!container) return;
+            const items = buildTickerItems();
+            if (items.length === 0) return;
+            let idx = 0;
+            container.innerHTML = items[0];
+            if (tickerInterval) clearInterval(tickerInterval);
+            tickerInterval = setInterval(() => {
+                container.classList.add('fade-out');
+                setTimeout(() => {
+                    idx = (idx + 1) % items.length;
+                    container.innerHTML = items[idx];
+                    container.classList.remove('fade-out');
+                }, 500);
+            }, 7000);
+        }
+
+        fetchWeather();
+        setInterval(fetchWeather, 1800000);
+
+        // ========== CARRUSEL CON TODAS LAS TARJETAS (aleatorio) ==========
+        const todasLasTarjetas = [...productosPersonas, ...productosNegocios];
+        for (let i = todasLasTarjetas.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [todasLasTarjetas[i], todasLasTarjetas[j]] = [todasLasTarjetas[j], todasLasTarjetas[i]];
+        }
+        const allWrapper = document.getElementById('allCardsWrapper');
+        todasLasTarjetas.forEach(p => {
+            const card = crearCard(p);
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.appendChild(card);
+            allWrapper.appendChild(slide);
+        });
+        new Swiper('#allSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: { delay: 6000, disableOnInteraction: false },
+            speed: 1000,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        });
+
+        // ========== OCULTAR MENÚ AL SCROLL ==========
+        let lastScrollTop = 0;
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) nav.classList.add('hide-nav');
+            else if (scrollTop < lastScrollTop) nav.classList.remove('hide-nav');
+            lastScrollTop = scrollTop;
+        });
+
+        // ========== VCARD ==========
+        document.getElementById('saveContactBtn').addEventListener('click', () => {
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Mario Cañadas Varela
+ORG:Productor Asesor de Seguros
+TEL;TYPE=CELL:+5492644153750
+EMAIL:mariocanadasvarela@gmail.com
+URL:https://mariocanadasvarela-bit.github.io/seguros/
+ADR:;;Pasaje Virgen de Lourdes 1520;San Juan;;5400;Argentina
+END:VCARD`;
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'mario.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // ========== CHATBOT (con cierre fuera y FAQs completas) ==========
+        const faqs = [
+            { q: "¿Qué documentación es obligatoria para circular?", a: "Para circular por la vía pública necesitás llevar: DNI, Licencia de conducir vigente, Cédula de Identificación del Vehículo (verde o azul) y el comprobante de seguro vigente (podés mostrar la póliza en formato digital desde el celular)." },
+            { q: "¿Cómo solicito el servicio de grúa o asistencia mecánica?", a: "Podés pedir la grúa llamando directamente al número 0800 de asistencia que figura en el frente de tu póliza y en tu tarjeta de circulación, o bien gestionarlo desde la aplicación móvil de la compañía aseguradora." },
+            { q: "¿El seguro me cubre si viajo a países limítrofes?", a: "La mayoría de las coberturas incluyen el Certificado Mercosur, que extiende tu Responsabilidad Civil a países limítrofes. Verificá si tu póliza lo incluye." },
+            { q: "¿Puedo manejar un auto que no está a mi nombre?", a: "Sí, si tenés autorización del titular y tu licencia vigente. La cobertura de Responsabilidad Civil siempre sigue al vehículo." },
+            { q: "¿Qué debo hacer si tengo un choque o accidente?", a: "Primero, asegurate de que todos estén bien. Tomá datos del tercero, sacá fotos y contactate con nosotros para ingresar la denuncia." },
+            { q: "¿Cuánto tiempo tengo para denunciar un siniestro?", a: "Por ley, contás con un plazo máximo de 72 horas (3 días). Hacelo lo antes posible." },
+            { q: "Me rompieron un cristal / cerradura, ¿qué hago?", a: "Si tu cobertura incluye reposición, envianos fotos del daño y la fecha para derivarte al centro de instalación." },
+            { q: "¿Cómo puedo obtener una copia de mi póliza?", a: "Podés descargarla desde el portal de autogestión de la compañía o pedírmela por acá." },
+            { q: "¿Cuáles son los medios de pago habilitados?", a: "Débito automático, transferencia, Pago Fácil, Rapipago, Mercado Pago." },
+            { q: "¿Qué pasa si me atraso con el pago?", a: "La cobertura se suspende hasta regularizar la deuda. Algunas compañías tienen un período de gracia." },
+            { q: "¿Qué significa la franquicia en un seguro Todo Riesgo?", a: "Es el monto fijo que pagás ante un daño parcial. El resto lo cubre la aseguradora." },
+            { q: "¿Inspeccionan mi auto o casa?", a: "Si el auto es usado suele requerirse foto-inspección. Para hogar, solo si la suma asegurada es muy alta." },
+            { q: "¿Qué es la cláusula de ajuste?", a: "Porcentaje adicional que protege el valor de tu auto frente a la inflación en caso de robo o destrucción total." },
+            { q: "Diferencia entre robo y hurto?", a: "Robo implica violencia o fuerza; hurto no." },
+            { q: "¿Cubre rayones si dejo el auto en la calle?", a: "Solo si tenés cobertura Todo Riesgo con franquicia." },
+            { q: "Diferencia entre Terceros Completo y Todo Riesgo?", a: "Terceros Completo cubre daños a otros, robo total, incendio y granizo. Todo Riesgo además cubre daños parciales." },
+            { q: "¿Actualizo el valor asegurado por inflación?", a: "Muchas compañías lo hacen automáticamente con cláusula de ajuste; si no, pedinos una actualización." }
+        ];
+
+        const chatbotBody = document.getElementById('chatbotBody');
+        let currentFaqIndex = 5;
+        function renderFaqs() {
+            chatbotBody.innerHTML = '';
+            for (let i = 0; i < Math.min(currentFaqIndex, faqs.length); i++) {
+                const faq = faqs[i];
+                const qDiv = document.createElement('div');
+                qDiv.className = 'faq-question';
+                qDiv.textContent = faq.q;
+                const aDiv = document.createElement('div');
+                aDiv.className = 'faq-answer';
+                aDiv.innerHTML = `<i class="fa-regular fa-message"></i> ${faq.a}<br><br><a href="https://api.whatsapp.com/send?phone=5492644153750&text=Hola, tengo una consulta sobre: ${encodeURIComponent(faq.q)}" target="_blank" style="color: var(--secondary);">📲 Consultar por WhatsApp</a>`;
+                qDiv.addEventListener('click', () => {
+                    const isOpen = aDiv.classList.contains('show');
+                    document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show'));
+                    if (!isOpen) aDiv.classList.add('show');
+                });
+                chatbotBody.appendChild(qDiv);
+                chatbotBody.appendChild(aDiv);
+            }
+            if (currentFaqIndex < faqs.length) {
+                const loadMore = document.createElement('button');
+                loadMore.className = 'load-more-faqs';
+                loadMore.textContent = 'Ver más preguntas';
+                loadMore.addEventListener('click', () => {
+                    currentFaqIndex = faqs.length;
+                    renderFaqs();
+                });
+                chatbotBody.appendChild(loadMore);
+            }
+        }
+        renderFaqs();
+
+        const chatbotBtn = document.getElementById('chatbotBtn');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const closeChatbotBtn = document.getElementById('closeChatbotBtn');
+        function openChatbot() { chatbotWindow.classList.add('show'); }
+        function closeChatbot() { chatbotWindow.classList.remove('show'); }
+        chatbotBtn.addEventListener('click', openChatbot);
+        closeChatbotBtn.addEventListener('click', closeChatbot);
+        window.addEventListener('click', (e) => {
+            if (chatbotWindow.classList.contains('show') && !chatbotWindow.contains(e.target) && e.target !== chatbotBtn) {
+                closeChatbot();
+            }
+        });
+
+        // ========== MODO OSCURO ==========
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('dark')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // ========== MENSAJE DE ÉXITO FORMULARIO ==========
+        const customSuccessDiv = document.getElementById('customSuccessMessage');
+        const statusDivs = document.querySelectorAll('.form-status');
+        function showCustomSuccess() {
+            statusDivs.forEach(div => div.style.display = 'none');
+            customSuccessDiv.style.display = 'block';
+            document.getElementById('contact-form').reset();
+            setTimeout(() => customSuccessDiv.style.display = 'none', 8000);
+        }
+        const observerSuccess = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                    const successDiv = document.querySelector('[data-fs-success]');
+                    if (successDiv && successDiv.style.display !== 'none') showCustomSuccess();
+                }
+            });
+        });
+        const successElement = document.querySelector('[data-fs-success]');
+        if (successElement) observerSuccess.observe(successElement, { attributes: true });
+
+        // ========== RESTO ==========
+        const howBtn = document.getElementById('howWeWorkBtn');
+        const methodologyLink = document.getElementById('methodologyLink');
+        const methodologySection = document.getElementById('asesoramiento');
+        function scrollToMethodology(e) { if (e) e.preventDefault(); if (methodologySection) methodologySection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        if (howBtn) howBtn.addEventListener('click', scrollToMethodology);
+        if (methodologyLink) methodologyLink.addEventListener('click', scrollToMethodology);
+
+        const toggleBtn = document.getElementById('navToggle');
+        const navActions = document.getElementById('navActions');
+        if (toggleBtn && navActions) {
+            toggleBtn.addEventListener('click', () => {
+                const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' ? false : true;
+                navActions.classList.toggle('show');
+                toggleBtn.setAttribute('aria-expanded', expanded);
+            });
+            navActions.querySelectorAll('a, button').forEach(link => {
+                link.addEventListener('click', () => {
+                    navActions.classList.remove('show');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        const goTopBtn = document.getElementById('goTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) goTopBtn.classList.add('show');
+            else goTopBtn.classList.remove('show');
+        });
+        goTopBtn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                if (targetId === '#showPersonasBtn' || targetId === '#showNegociosBtn') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) { e.preventDefault(); targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+
+        const scriptSchema = document.createElement('script');
+        scriptSchema.type = 'application/ld+json';
+        scriptSchema.textContent = JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "InsuranceAgency",
+            "name": "Mario Cañadas Varela",
+            "url": "https://mariocanadasvarela-bit.github.io/seguros/",
+            "logo": "perfil.jpg",
+            "address": { "@type": "PostalAddress", "addressLocality": "San Juan", "addressCountry": "AR" },
+            "telephone": "+5492644153750",
+            "email": "mariocanadasvarela@gmail.com",
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "priceRange": "$$"
+        });
+        document.head.appendChild(scriptSchema);
+    </script>
+</body>
+</html>
