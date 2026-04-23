@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Mario Cañadas Varela
+ORG:Productor Asesor de Seguros
+TEL;TYPE=CELL:+5492644153750
+EMAIL:mariocanadasvarela@gmail.com
+URL:https://mariocanadasvarela-bit.github.io/seguros/
+ADR:;;Pasaje Virgen de Lourdes 1520;San Juan;;5400;Argentina
+END:VCARD
