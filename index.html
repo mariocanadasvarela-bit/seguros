@@ -20,8 +20,9 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mario Cañadas Varela - Seguros">
     
-    <!-- Favicon y theme-color -->
-    <link rel="icon" href="logo-192.png" type="image/png">
+    <!-- Favicon y theme-color (cambiado a logo-mario.png) -->
+    <link rel="icon" href="logo-mario.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo-mario.png">
     <meta name="theme-color" content="#003b5c">
     
     <!-- Preload de imagen de fondo del hero -->
@@ -937,9 +938,34 @@
         const chatbotBody = document.getElementById('chatbotBody');
         function renderFaqs() { chatbotBody.innerHTML = ''; faqs.forEach(faq => { const qDiv = document.createElement('div'); qDiv.className = 'faq-question'; qDiv.textContent = faq.q; const aDiv = document.createElement('div'); aDiv.className = 'faq-answer'; aDiv.innerHTML = `<i class="fa-regular fa-message"></i> ${faq.a}<br><br><a href="https://api.whatsapp.com/send?phone=5492644153750&text=Hola, tengo una consulta sobre: ${encodeURIComponent(faq.q)}" target="_blank" style="color: var(--secondary);">📲 Consultar por WhatsApp</a>`; qDiv.addEventListener('click', () => { document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show')); aDiv.classList.toggle('show'); }); chatbotBody.appendChild(qDiv); chatbotBody.appendChild(aDiv); }); }
         renderFaqs();
-        document.getElementById('chatbotBtn').addEventListener('click', () => document.getElementById('chatbotWindow').classList.add('show'));
-        document.getElementById('closeChatbotBtn').addEventListener('click', () => document.getElementById('chatbotWindow').classList.remove('show'));
-        window.addEventListener('click', (e) => { const w = document.getElementById('chatbotWindow'); if (w.classList.contains('show') && !w.contains(e.target) && e.target !== document.getElementById('chatbotBtn')) w.classList.remove('show'); });
+
+        // ========== CÓDIGO DEL CHATBOT REPARADO (con toggle y DOMContentLoaded) ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbotBtn = document.getElementById('chatbotBtn');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const closeChatbotBtn = document.getElementById('closeChatbotBtn');
+
+            if (chatbotBtn && chatbotWindow) {
+                chatbotBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    chatbotWindow.classList.toggle('show');
+                });
+            }
+            if (closeChatbotBtn && chatbotWindow) {
+                closeChatbotBtn.addEventListener('click', function() {
+                    chatbotWindow.classList.remove('show');
+                });
+            }
+            // Cerrar si se hace clic fuera del chat
+            window.addEventListener('click', function(e) {
+                if (chatbotWindow && chatbotWindow.classList.contains('show') && 
+                    !chatbotWindow.contains(e.target) && e.target !== chatbotBtn) {
+                    chatbotWindow.classList.remove('show');
+                }
+            });
+        });
+        // ========== FIN DEL CÓDIGO DEL CHATBOT REPARADO ==========
+
         document.getElementById('themeToggle').addEventListener('click', () => { document.body.classList.toggle('dark'); const i = document.getElementById('themeToggle').querySelector('i'); i.classList.toggle('fa-moon'); i.classList.toggle('fa-sun'); });
         const customSuccessDiv = document.getElementById('customSuccessMessage');
         const observerSuccess = new MutationObserver(() => { const successDiv = document.querySelector('[data-fs-success]'); if (successDiv && successDiv.style.display !== 'none') { document.querySelectorAll('.form-status').forEach(div => div.style.display = 'none'); customSuccessDiv.style.display = 'block'; document.getElementById('contact-form').reset(); setTimeout(() => customSuccessDiv.style.display = 'none', 8000); } });
@@ -958,7 +984,6 @@
                 navToggle.setAttribute('aria-expanded', !isExpanded);
             });
         }
-        // Cerrar menú hamburguesa al hacer scroll
         window.addEventListener('scroll', () => {
             if (navActions && navActions.classList.contains('show')) {
                 navActions.classList.remove('show');
@@ -989,7 +1014,6 @@
         
         const scriptSchema = document.createElement('script');
         scriptSchema.type = 'application/ld+json';
-        // SCHEMA CORREGIDO: URL actualizada a mcvseguros.com.ar
         scriptSchema.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "InsuranceAgency", "name": "Mario Cañadas Varela", "url": "https://mcvseguros.com.ar/", "logo": "perfil.jpg", "address": { "@type": "PostalAddress", "addressLocality": "San Juan", "addressCountry": "AR" }, "telephone": "+5492644153750", "email": "mariocanadasvarela@gmail.com", "openingHours": "Mo-Fr 09:00-18:00", "priceRange": "$$" });
         document.head.appendChild(scriptSchema);
     </script>
